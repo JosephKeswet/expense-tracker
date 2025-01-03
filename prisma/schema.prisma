@@ -25,6 +25,8 @@ model User {
   userName  String
   email     String   @unique
   passwordHash String
+  isEmailVerified Boolean @default(false)
+  verificationOtp String?
 }
 
 
@@ -36,7 +38,7 @@ model Expenses {
   userId         String
   category       ExpenseCategory
   amount         Float
-  description    String
+  description    String? @unique 
 }
 
 enum ExpenseCategory {
